@@ -45,7 +45,7 @@
    
    ```
         datatype [] books;              // Declaration => books is defined in the stack at compile time
-        i = new int[] {array elements} // initialization => memory will be allocated in heap memory at runtime   
+        books = new int[] {array elements} // initialization => memory will be allocated in heap memory at runtime   
     ```
 
 ## Accessing array elements :
@@ -54,7 +54,7 @@
 
     ```
     int[] arr1 = {12,13,16,18}
-    arr[1] = 13;        // value at index 1
+    arr1[1] = 13;        // value at index 1
     ```
 
 ## Traversing array elements :
