@@ -38,16 +38,14 @@
     ```
         dataType[] referenceVariable = {array elements};
 
-        Example :
-                int [] roll_numbers  = new int[5];
-                int [] roll_numbers     // Declaration => roll_number is defined in the stack at compile time
-                roll_numbers = new int[5] // initialization => memory will be allocated in heap memory at runtime
+        Eg: String[] Alphabets = {'A','B','C','D','E','F'};
+                
     ```
 3. Array Literal + new keyword
    
    ```
-        datatype [] i;                  // declaration
-        i = new int[] {array elements} // initialization // we need not to specify size here.
+        datatype [] books;              // Declaration => books is defined in the stack at compile time
+        i = new int[] {array elements} // initialization => memory will be allocated in heap memory at runtime   
     ```
 
 ## Accessing array elements :
