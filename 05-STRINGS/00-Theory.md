@@ -81,31 +81,6 @@ Note: When we create Strings Dynamically, i.e., Using the 'new' keyword  then, t
 ```
 - name1 and name2 hold the same data, hence (.equals) returns true, because both the strings have the same values.
 
-# Why are Strings Immutable in Java?
-- Immutable => Can't be Modified
-- Strings are immutable in Java for Security reasons
-  Example: Let's consider three 3 persons
-```
-          String p1 = "Arjun";
-          String p2 = "Arjun";
-          String p2 = "Arjun";
-
-          Here,
-            1. String Object (Arjun) is Stored in the String Pool
-            2. We Observe that,
-               A single Object is referenced by multiple reference variables i.e.,
-                  p1 ---------->  Arjun
-                  p2 ---------->  Arjun
-                  p3 ---------->  Arjun
-
-            3. If we try to Change the value of a single reference variable,
-               all the remaining values of the other reference variables will also be changed because they are
-               stored in a String pool and a String pool doesn't contain repeated similar objects i.e.,
-                   p2 = Raju, then
-                   p1 -- p2 --- p3 -----------> Raju
-```
-
-
 # String Methods :
 ```
 |      Method          |                      Description                                   | Return Type |
@@ -163,3 +138,99 @@ Note: When we create Strings Dynamically, i.e., Using the 'new' keyword  then, t
 | codePointCount()     | Returns the number of Unicode values found in a string             | int         |
 
 ```
+
+# Why are Strings Immutable in Java?
+- Immutable => Can't be Modified
+- Strings are immutable in Java for Security reasons
+- Example-1: Let's consider three 3 persons 
+```
+          String p1 = "Arjun";
+          String p2 = "Arjun";
+          String p2 = "Arjun";
+
+          Here,
+            1. String Object (Arjun) is Stored in the String Pool
+            2. We Observe that,
+               A single Object is referenced by multiple reference variables i.e.,
+                  p1 ---------->  Arjun
+                  p2 ---------->  Arjun
+                  p3 ---------->  Arjun
+
+            3. If we try to Change the value of a single reference variable,
+               all the remaining values of the other reference variables will also be changed because they are
+               stored in a String pool and a String pool doesn't contain repeated similar objects i.e.,
+                   p2 = Raju, then
+                   p1 -- p2 --- p3 -----------> Raju
+```
+- Example-2 :
+```
+Public static void main(String args[]){
+    String  s1 = "Suresh";
+    String  s2 = "Suresh";
+
+    System.out.println(s1 == s2);  // true  => address of s1 and s2 is same
+
+    // Here, we are concatenating "Raina" to s1.
+    // Since strings are immutable in Java, this operation creates a new String object with the value "SureshRaina" and assigns it to s1.
+    // Note: The original "Suresh" String object remains unchanged.
+
+    s1 = s1 + "Raina" // s1 = SureshRaina
+
+    // In a String, a change in its value leads to a change in its address because Strings can't be modified.
+    // This indirectly means a new string is created whenever a String object is modified.
+
+    System.out.println(s1 == s2);  // false  => address of s1 and s2 is not same
+
+    String s3 = "SureshRaina";
+    // Here, a new String object s3 is created with the value "SureshRaina".
+    // Even though s1 and s3 have the same value, they are different objects in memory because s1 was created through       
+     concatenation.
+
+    System.out.println(s1 == s3);  // false   
+}
+```
+
+- To tackle this Immutability issue In Java, StringBuffer and StringBuilder classes are introduced.
+
+# StringBuffer Vs StringBuilder
+
+- StringBuffer and StringBuilder are non-primitive datatypes introduced to store text-format data.
+- Since Java is a multi-threaded language, so two String mutability classes are introduced, one for a Single-threaded environment and the other for a multi-threaded environment.
+- StringBuffer and StringBuilder classes are not literals, unlike the String class.
+
+## StringBuffer
+- Used in Multi-threaded environment
+- Introduced in Java 1.0 version
+- Less efficient than StringBuilder because of its Multi-threaded environment and Asynchronous nature.
+##### Syntax : 
+```
+  DataType referenceVariable = new DataType (Object) ; 
+  Where,
+      DataType          => StringBuffer Class
+      referenceVariable => Name of the StringBuffer
+      'new' keyword     => Creates StringBuffer Object at Runtime or Dynamically
+      Object            => Value of the StringBuffer.
+```
+Example :
+```
+  StringBuffer Name = new StringBuffer("Raju");
+```
+
+## StringBuilder
+- Used in a Single-threaded environment 
+- Introduced in Java 1.5 version
+- More efficient than StringBuffer
+#### Syntax
+```
+  DataType referenceVariable = new DataType (Object) ; 
+  Where,
+      DataType          => StringBuilder Class
+      referenceVariable => Name of the StringBuilder
+      'new' keyword     => Creates StringBuilder Object at Runtime or Dynamically
+      Object            => Value of the StringBuilder.
+```
+Example :
+```
+  StringBuilder Name = new StringBuilder("Raju");
+```
+
