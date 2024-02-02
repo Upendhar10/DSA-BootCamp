@@ -1,4 +1,4 @@
-                                                           #  DSA: STRINGS 
+                                                  #  DSA: STRINGS 
 
 - String is a non-primitive datatype.
 - A String is a sequence of characters.
@@ -234,3 +234,168 @@ Example :
   StringBuilder Name = new StringBuilder("Raju");
 ```
 
+## StringBuilder Methods
+
+- The StringBuilder class provides some of the important methods to work with the strings.
+  
+##### 1. append()
+- The string passed as a parameter to the append method will be concatenated after the string on which the append method is applied.
+- Code:
+```
+class StringBuilderExample{
+//main method of class
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is an example of ");
+    strSB.append("append method.");
+    System.out.println(strSB);
+    }
+}
+
+Output: "This is an example of append method.
+```
+
+#### 2. insert()
+- The string passed as a parameter to the insert method will be inserted at the specified index (passed as a first parameter) of the string on which the insert method is applied.
+- Code:
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a program");
+    strSB.insert(10, "java ");
+    System.out.println(strSB);
+    }
+}
+
+Output: This is a java program
+```
+
+#### 3. replace()
+- The string passed as a parameter to the replace method will replace all the characters that come in between the characters at the start & last index.
+- This first & last index is passed as the first & second parameter in the replace method.
+- Code:
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a program");
+    strSB.replace(0, 9, "java");
+    System.out.println(strSB);
+  }
+}
+
+Output: java program
+```
+
+#### 4. delete()
+- delete() will replace all the characters that come in between the characters at the start & last index.
+- This first & last index is passed as the first & second parameter in the delete() method.
+- Code:
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a program");
+    strSB.delete(0, 10);
+    System.out.println(strSB);
+  }
+}
+
+Output: program
+```
+
+#### 5. reverse()
+- The reverse() method will reverse the string on which the reverse method is applied.
+- Code:
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a program");
+    strSB.reverse();
+    System.out.println(strSB);
+  }
+}
+Output: margorp a si sihT
+
+```
+
+#### 6. capacity()
+- The default capacity of StringBuilder is 16.
+- The capacity of the builder can be increased by (capacity * n) + n.
+- Code:
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder();
+    System.out.println(strSB.capacity());
+    strSB.append("This is a program");
+    System.out.println(strSB.capacity());
+  }
+}
+
+Output:
+16
+34
+
+```
+
+#### 7. length()
+- length() method will return the length of the specified string.
+- Code:
+
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a java program");
+    System.out.println(strSB.length());
+  }
+}
+
+Output: 22
+
+```
+
+#### 8. deleteCharAt()
+- The deleteCharAt() method will delete the character at the specified index passed as a parameter.
+- Code:
+
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a java program");
+    strSB.deleteCharAt(6);
+    System.out.println(strSB);
+  }
+}
+
+Output: This i a java program
+
+```
+
+#### 9. setCharAt(int index, char ch)
+- The setCharAt() method will set the specified char at the specified index passed as the first parameter while the second parameter will be the character.
+- Code:
+```
+class StringBuilderExample{
+public static void main(String args[]){
+StringBuilder strSB = new StringBuilder("This is a java program");
+strSB.setCharAt(8, 'n');
+System.out.println(strSB);
+}
+}
+
+Output: This is n java program
+
+```
+
+#### 10. indexOf()
+- This method returns the first position’s index in the string for the specified substring passed as a parameter.
+- Code:
+```
+class StringBuilderExample{
+    public static void main(String args[]){
+    StringBuilder strSB = new StringBuilder("This is a java program");
+    System.out.println(strSB.indexOf("java"));
+    }
+}
+
+Output: 10
+```
+- The StringBuilder class also has some other methods to work with the string which are listed below setLength(), toString(), trimToSize(), substring(), etc.
